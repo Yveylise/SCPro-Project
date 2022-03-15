@@ -47,16 +47,18 @@ let tempElement = document.querySelector(".defaultTemp");
 
 function convertToFahrenheit(event) {
   event.preventDefault();
-  temperature = tempElement.innerHTML;
-  tempElement.innerHTML = Math.round((temperature * 9) / 5 + 32);
+  temperature = farenheitTemperature;
+  tempElement.innerHTML = Math.round(temperature);
 }
 
 //Convert to Celcius
 function convertToCelsius(event) {
   event.preventDefault();
-  temperature = tempElement.innerHTML;
+  temperature = farenheitTemperature;
   tempElement.innerHTML = Math.round((temperature - 32) * (5 / 9));
 }
+
+let farenheitTemperature = null;
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
@@ -70,35 +72,45 @@ userSearchForm.addEventListener("submit", userSearch);
 
 function userSearch(event) {
   event.preventDefault();
-  // function handleSearch() {
   let userCity = document.querySelector("#site-search");
   let userCityValue = userCity.value;
-  //  console.log(`${userCityValue}`);
   let apiKey = "2d226cd19a47dc1aded74f5d314dd190";
   let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${userCityValue}&appid=${apiKey}&units=imperial`;
-  //  console.log(apiURL);
   axios.get(apiURL).then(displayWeather);
-  //console.log(showUserSearchStats);
 }
 
 // Display Weather Info
 function displayWeather(response) {
-  //console.log(response);
   let localCityName = response.data.name;
-  //  console.log(localCityName);
   let localTemperature = Math.round(response.data.main.temp);
-  // console.log(localTemperature);
+  let windSpeed = Math.round(response.data.wind.speed);
+  let skyDescription = response.data.weather[0].description;
+
+  farenheitTemperature = response.data.main.temp;
+
   let liCity = document.querySelector("li#city");
   liCity.innerHTML = `${localCityName}`;
+
   let liTemp = document.querySelector(".defaultTemp");
   liTemp.innerHTML = `${localTemperature}`;
-}
 
+  let liWindSpeed = document.querySelector(".mph");
+  liWindSpeed.innerHTML = `${windSpeed}`;
+
+  let liSky = document.querySelector("li#sky");
+  liSky.innerHTML = `${skyDescription}`;
+
+  let icon = document.querySelector("#icon");
+  console.log(`${icon}`);
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  icon.setAttribute("alt", response.data.weather[0].description);
+}
 // --------------CURRENT LOCATION-------------------------
 
 function currentLocation(position) {
-  //  console.log(position.coords.latitude);
-  //  console.log(position.coords.longitude);
   let lat = position.coords.latitude;
   let long = position.coords.longitude;
   let apiKey = "2d226cd19a47dc1aded74f5d314dd190";
@@ -117,3 +129,7 @@ currentLocationButton.addEventListener("click", getCurrentLocation);
 // Current Location Click >> get geo location >> grab coords to create API Link >> display local stats from API
 
 // User Search Click >> grab user value to create API link >> display weather.
+
+// --------------- Wind Speed --------------------
+
+// Sky Description
