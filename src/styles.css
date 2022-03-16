@@ -10,6 +10,7 @@ body {
   border: 5px solid #df7861;
   border-radius: 10px;
   background-color: #d4e2d4;
+  box-shadow: rgba(110, 43, 4, 0.12) 4px 8px 8px 2px;
 }
 
 .openSource {
@@ -50,7 +51,7 @@ button {
 
 h1 {
   text-align: center;
-  font-family: "Dancing Script", cursive;
+  font-family: "Viga", sans-serif;
 }
 
 #weather-data.row {
@@ -74,46 +75,36 @@ ul.future-weather {
   list-style-type: none;
 }
 
-#day1.row {
+#day1.row,
+#day2.row,
+#day3.row,
+#day4.row,
+#day5.row {
   margin: 0 auto;
   padding: 10px 0 10px 0px;
   max-width: 400px;
   border: none;
   text-align: center;
+}
+
+#day1.row {
   background-color: #df7861;
 }
 
 #day2.row {
-  margin: 0 auto;
-  padding: 10px 0 10px 0px;
-  max-width: 400px;
-  text-align: center;
   background-color: #fcf8e8;
 }
 
 #day3.row {
-  margin: 0 auto;
-  padding: 10px 0 10px 0px;
-  max-width: 400px;
-  text-align: center;
   background-color: #d4e2d4;
 }
 
 #day4.row {
-  margin: 0 auto;
-  padding: 10px 0 10px 0px;
-  max-width: 400px;
-  text-align: center;
   background-color: #ecb390;
 }
 
 #day5.row {
-  margin: 0 auto;
-  padding: 10px 0 10px 0px;
-  max-width: 400px;
-  text-align: center;
   background-color: #df7861;
-  border-radius: 0px;
 }
 
 .futureDays {
