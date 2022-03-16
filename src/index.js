@@ -31,10 +31,26 @@ function formatMinutes() {
   }
 }
 
+function formatHour() {
+  let night = "PM";
+  let day = "AM";
+
+  if (currentHour > 12) {
+    formattedHour = currentHour - 12;
+    currentHour = formattedHour;
+    dayNightIndicator = `${night}`;
+    return currentHour;
+  } else {
+    dayNightIndicator = `${day}`;
+    return `${currentHour}`;
+  }
+}
+
 // display day of week and user's local time.
 
 currentMinute = formatMinutes();
-let currentTime = `${currentHour}:${currentMinute}`;
+currentHour = formatHour();
+let currentTime = `${currentHour}:${currentMinute} ${dayNightIndicator}`;
 
 let liDate = document.querySelector("li#date");
 liDate.innerHTML = `${currentDay}, ${currentTime}`;
@@ -101,7 +117,6 @@ function displayWeather(response) {
   liSky.innerHTML = `${skyDescription}`;
 
   let icon = document.querySelector("#icon");
-  console.log(`${icon}`);
   icon.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
