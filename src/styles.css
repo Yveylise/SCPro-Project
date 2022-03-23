@@ -62,7 +62,7 @@ h1 {
 
 #future-weather.row {
   margin: 0 auto;
-  padding: 15px 15px 15px 15px;
+  padding: 10px 10px 10px 10px;
   max-width: 400px;
   text-align: center;
   background-color: #ecb390;
@@ -84,7 +84,7 @@ ul.current-weather {
   margin: 0 auto;
   padding: 0px;
   max-width: 400px;
-  max-height: 100px;
+  max-height: 65px;
   border: none;
 }
 
@@ -116,13 +116,13 @@ a {
 }
 
 #futureIcon {
-  max-height: 75px;
-  max-width: 75px;
+  max-height: 65px;
+  max-width: 65px;
   padding: 0px;
 }
 
 #forecastText {
-  padding: 15px 0px 0px 15px;
+  padding: 10px 0px 0px 10px;
 }
 #forecastIcon {
   text-align: right;
