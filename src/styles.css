@@ -75,6 +75,14 @@ ul.current-weather {
   list-style-type: none;
 }
 
+#forecastDay {
+  margin: 0 auto;
+  padding: 0px;
+  max-width: 400px;
+  max-height: 65px;
+  border: none;
+}
+
 #day1.row,
 #day2.row,
 #day3.row,
@@ -83,9 +91,6 @@ ul.current-weather {
 #day6.row {
   margin: 0 auto;
   padding: 0px;
-  max-width: 400px;
-  max-height: 65px;
-  border: none;
 }
 
 #day1.row {
@@ -107,8 +112,10 @@ ul.current-weather {
 #day5.row {
   background-color: #e99683;
 }
+
 #day6.row {
   background-color: #d4e2d4;
+  border-radius: 8px;
 }
 
 a {
@@ -122,7 +129,7 @@ a {
 }
 
 #forecastText {
-  padding: 10px 0px 0px 10px;
+  padding: 8px 0px 8px 8px;
 }
 #forecastIcon {
   text-align: right;

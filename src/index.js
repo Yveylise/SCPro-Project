@@ -46,6 +46,22 @@ function formatHour() {
   }
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  return days[day];
+}
+
 // display day of week and user's local time.
 
 currentMinute = formatMinutes();
@@ -122,6 +138,8 @@ function displayWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   icon.setAttribute("alt", response.data.weather[0].description);
+
+  getForecast(response.data.coord);
 }
 // --------------CURRENT LOCATION-------------------------
 
@@ -141,10 +159,127 @@ function getCurrentLocation(event) {
 let currentLocationButton = document.querySelector(".current-location-search");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
-// Current Location Click >> get geo location >> grab coords to create API Link >> display local stats from API
+// ----- Forecast -----
 
-// User Search Click >> grab user value to create API link >> display weather.
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  console.log(forecast);
 
-// --------------- Wind Speed --------------------
+  let forecastDay1 = document.querySelector("#forecastDay1");
+  let forecastDay2 = document.querySelector("#forecastDay2");
+  let forecastDay3 = document.querySelector("#forecastDay3");
+  let forecastDay4 = document.querySelector("#forecastDay4");
+  let forecastDay5 = document.querySelector("#forecastDay5");
 
-// Sky Description
+  forecastDay0.innerHTML = `
+    <div class="col-6" id="forecastText">
+    ${formatDay(forecast[0].dt)}
+    <br />
+    ${Math.round(forecast[0].temp.max)}° / ${Math.round(forecast[0].temp.min)}°
+  </div>
+      <div class="col-6" id="forecastIcon">
+      <img
+      src="http://openweathermap.org/img/wn/${forecast[0].weather[0].icon}.png"
+      alt="Clear"
+      id="futureIcon"
+      class="float-right"
+      />
+      </div>`;
+
+  forecastDay1.innerHTML = `
+    <div class="col-6" id="forecastText">
+    ${formatDay(forecast[1].dt)}
+    <br />
+    ${Math.round(forecast[1].temp.max)}° / ${Math.round(forecast[1].temp.min)}°
+  </div>
+      <div class="col-6" id="forecastIcon">
+      <img
+      src="http://openweathermap.org/img/wn/${forecast[1].weather[0].icon}.png"
+      alt="Clear"
+      id="futureIcon"
+      class="float-right"
+      />
+      </div>`;
+
+  forecastDay2.innerHTML = `
+    <div class="col-6" id="forecastText">
+    ${formatDay(forecast[2].dt)}
+    <br />
+    ${Math.round(forecast[2].temp.max)}° / ${Math.round(
+    forecast[2].temp.min
+  )}°</div>
+      <div class="col-6" id="forecastIcon">
+      <img
+      src="http://openweathermap.org/img/wn/${forecast[2].weather[0].icon}.png"
+      alt="Clear"
+      id="futureIcon"
+      class="float-right"
+      />
+      </div>`;
+
+  forecastDay3.innerHTML = `
+    <div class="col-6" id="forecastText">
+    ${formatDay(forecast[3].dt)}
+    <br />
+    ${Math.round(forecast[3].temp.max)}° / ${Math.round(forecast[3].temp.min)}°
+  </div>
+      <div class="col-6" id="forecastIcon">
+      <img
+      src="http://openweathermap.org/img/wn/${forecast[3].weather[0].icon}.png"
+      alt="Clear"
+      id="futureIcon"
+      class="float-right"
+      />
+      </div>`;
+
+  forecastDay4.innerHTML = `
+    <div class="col-6" id="forecastText">
+    ${formatDay(forecast[4].dt)}
+    <br />
+    ${Math.round(forecast[4].temp.max)}° / ${Math.round(forecast[4].temp.min)}°
+  </div>
+      <div class="col-6" id="forecastIcon">
+      <img
+      src="http://openweathermap.org/img/wn/${forecast[4].weather[0].icon}.png"
+      alt="Clear"
+      id="futureIcon"
+      class="float-right"
+      />
+      </div>`;
+
+  forecastDay5.innerHTML = `
+    <div class="col-6" id="forecastText">
+    ${formatDay(forecast[5].dt)}
+    <br />
+    ${Math.round(forecast[5].temp.max)}° / ${Math.round(forecast[5].temp.min)}°
+  </div>
+      <div class="col-6" id="forecastIcon">
+      <img
+      src="http://openweathermap.org/img/wn/${forecast[5].weather[0].icon}.png"
+      alt="Clear"
+      id="futureIcon"
+      class="float-right"
+      />
+      </div>`;
+}
+
+function getForecast(coordinates) {
+  let apiKey = "2d226cd19a47dc1aded74f5d314dd190";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+/*
+ </div>
+      <div class="col-6" id="forecastIcon">
+      <img
+      src="http://openweathermap.org/img/wn/${
+        forecastDay.weather[index.value].icon
+      }.png"
+      alt="Clear"
+      id="futureIcon"
+      class="float-right"
+      />
+      </div>`;
+
+      */
