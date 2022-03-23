@@ -75,11 +75,17 @@ ul.current-weather {
   list-style-type: none;
 }
 
-#forecastDay {
+#forecastDay0,
+#forecastDay1,
+#forecastDay2,
+#forecastDay3,
+#forecastDay4,
+#forecastDay5 {
   margin: 0 auto;
   padding: 0px;
   max-width: 400px;
   max-height: 65px;
+  min-height: 35px;
   border: none;
 }
 
