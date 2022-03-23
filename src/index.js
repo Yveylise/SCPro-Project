@@ -165,6 +165,7 @@ function displayForecast(response) {
   let forecast = response.data.daily;
   console.log(forecast);
 
+  let forecastDay0 = document.querySelector("#forecastDay0");
   let forecastDay1 = document.querySelector("#forecastDay1");
   let forecastDay2 = document.querySelector("#forecastDay2");
   let forecastDay3 = document.querySelector("#forecastDay3");
