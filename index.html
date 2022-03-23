@@ -12,9 +12,12 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Viga&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Viga&display=swap"
+      rel="stylesheet"
+    />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -45,50 +48,131 @@
       </div>
 
       <div class="row" id="weather-data">
-          <ul class="current-weather">
-            <li id="city">City</li>
+        <ul class="current-weather">
+          <li id="city">City</li>
 
-            <li id="date">Day / Time</li>
+          <li id="date">Day / Time</li>
 
-            <li id="temp">
-              Temperature <span class="defaultTemp">0</span>° (
-              <span class="units">
-                <a href="#" id="celsius-link">°C</a> |
-                <a href="#" id="fahrenheit-link">°F</a>
-              </span>
-              )
-            </li>
-            <li id="windMPH"><span class="mph">Wind</span> mph</li>
+          <li id="temp">
+            Temperature <span class="defaultTemp">0</span>° (
+            <span class="units">
+              <a href="#" id="celsius-link">°C</a> |
+              <a href="#" id="fahrenheit-link">°F</a>
+            </span>
+            )
+          </li>
+          <li id="windMPH"><span class="mph">Wind</span> mph</li>
 
-            <li id="sky">Sky</li>
+          <li id="sky">Sky</li>
+          <img
+            src="http://openweathermap.org/img/wn/01d@2x.png"
+            alt="Clear"
+            id="icon"
+            class="float-left"
+          />
+        </ul>
+      </div>
+
+      <div class="row" id="future-weather">
+        <h1>5 Day Forecast</h1>
+      </div>
+
+      <div class="row" id="day1">
+        <div class="col-6" id="forecastText">
+          Day 1
+          <br />
+          Max / Min
+        </div>
+        <div class="col-6" id="forecastIcon">
+          <img
+            src="http://openweathermap.org/img/wn/01d@2x.png"
+            alt="Clear"
+            id="futureIcon"
+            class="float-right"
+          />
+        </div>
+      </div>
+
+      <div class="row" id="day2">
+        <div class="col-6" id="forecastText">
+          Day 2
+          <br />
+          Max / Min
+        </div>
+        <div class="col-6" id="forecastIcon">
+          <img
+            src="http://openweathermap.org/img/wn/01d@2x.png"
+            alt="Clear"
+            id="futureIcon"
+            class="float-right"
+          />
+        </div>
+        </div>
+
+        <div class="row" id="day3">
+          <div class="col-6" id="forecastText">
+            Day 3
+            <br />
+            Max / Min
+          </div>
+          <div class="col-6" id="forecastIcon">
             <img
               src="http://openweathermap.org/img/wn/01d@2x.png"
               alt="Clear"
-              id="icon"
-              class="float-left"
+              id="futureIcon"
+              class="float-right"
             />
-          </ul>
+          </div>
+          </div>
+
+          <div class="row" id="day4">
+          <div class="col-6" id="forecastText">
+            Day 4
+            <br />
+            Max / Min
+          </div>
+          <div class="col-6" id="forecastIcon">
+            <img
+              src="http://openweathermap.org/img/wn/01d@2x.png"
+              alt="Clear"
+              id="futureIcon"
+              class="float-right"
+            />
+          </div>
+          </div>
+
+         <div class="row" id="day5">
+          <div class="col-6" id="forecastText">
+            Day 5
+            <br />
+            Max / Min
+          </div>
+          <div class="col-6" id="forecastIcon">
+            <img
+              src="http://openweathermap.org/img/wn/01d@2x.png"
+              alt="Clear"
+              id="futureIcon"
+              class="float-right"
+            />
+          </div>
+          </div>
+
+          <div class="row" id="day6">
+          <div class="col-6" id="forecastText">
+            Day 6
+            <br />
+            Max / Min
+          </div>
+          <div class="col-6" id="forecastIcon">
+            <img
+              src="http://openweathermap.org/img/wn/01d@2x.png"
+              alt="Clear"
+              id="futureIcon"
+              class="float-right"
+            />
+          </div>
+          </div>
         </div>
-
-        <div class="row" id="future-weather">
-          <h1>5 Day Forecast</h1>
-        </div>
-
-          <div class="row" id="day1">
-            <span class="futureDays">Day 1</span></div>
-
-            <div class="row" id="day2">
-            <span class="futureDays">Day 2</span></div>
-
-            <div class="row" id="day3">
-            <span class="futureDays">Day 3</span></div>
-
-            <div class="row" id="day4">
-            <span class="futureDays">Day 4</span></div>
-
-            <div class="row" id="day5">
-            <span class="futureDays">Day 5</span></div>
-        
       </div>
     </div>
 
