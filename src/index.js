@@ -268,18 +268,3 @@ function getForecast(coordinates) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayForecast);
 }
-
-/*
- </div>
-      <div class="col-6" id="forecastIcon">
-      <img
-      src="http://openweathermap.org/img/wn/${
-        forecastDay.weather[index.value].icon
-      }.png"
-      alt="Clear"
-      id="futureIcon"
-      class="float-right"
-      />
-      </div>`;
-
-      */
